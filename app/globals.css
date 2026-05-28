@@ -1,0 +1,82 @@
+:root {
+  --color-navy: #0e2748;
+  --color-navy-dark: #071829;
+  --color-teal: #0ca8b8;
+  --color-teal-light: #26d4dc;
+  --color-text: #203047;
+  --color-muted: #607083;
+  --color-bg: #f7fbfc;
+
+  --shadow-soft: 0 24px 70px rgba(14, 39, 72, 0.08);
+  --shadow-strong: 0 34px 100px rgba(14, 39, 72, 0.16);
+
+  --radius-lg: 34px;
+  --radius-md: 24px;
+  --radius-pill: 999px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-bg);
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::selection {
+  background: rgba(12, 168, 184, 0.22);
+  color: var(--color-navy);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+main {
+  overflow: hidden;
+}
+
+section {
+  scroll-margin-top: 90px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,350 @@
+.contact {
+  position: relative;
+  padding: clamp(76px, 9vw, 135px) clamp(20px, 5vw, 72px);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(12, 168, 184, 0.12), transparent 30%),
+    linear-gradient(135deg, #f8fbfc 0%, #ffffff 52%, #edf8f9 100%);
+  overflow: hidden;
+}
+
+.backgroundCircle {
+  position: absolute;
+  right: -180px;
+  top: 70px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: rgba(12, 168, 184, 0.09);
+  pointer-events: none;
+}
+
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(14, 39, 72, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 39, 72, 0.035) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.42), transparent);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 520px);
+  gap: clamp(34px, 6vw, 88px);
+  align-items: center;
+}
+
+.content {
+  max-width: 720px;
+}
+
+.kicker {
+  display: inline-flex;
+  margin-bottom: 16px;
+  color: #0ca8b8;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 760px;
+  margin: 0;
+  color: #0e2748;
+  font-size: clamp(38px, 5.6vw, 76px);
+  line-height: 0.96;
+  letter-spacing: -0.065em;
+}
+
+.text {
+  max-width: 640px;
+  margin: 24px 0 0;
+  color: #607083;
+  font-size: 18px;
+  line-height: 1.78;
+}
+
+.quickActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 25px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 900;
+  text-decoration: none;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.primaryButton {
+  gap: 10px;
+  background: #0e2748;
+  color: #ffffff;
+  box-shadow: 0 18px 38px rgba(14, 39, 72, 0.18);
+}
+
+.primaryButton span {
+  transition: transform 180ms ease;
+}
+
+.primaryButton:hover {
+  background: #0ca8b8;
+  box-shadow: 0 22px 44px rgba(12, 168, 184, 0.26);
+}
+
+.primaryButton:hover span {
+  transform: translateX(4px);
+}
+
+.secondaryButton {
+  background: #ffffff;
+  color: #0e2748;
+  border: 1px solid rgba(14, 39, 72, 0.12);
+}
+
+.secondaryButton:hover {
+  color: #0ca8b8;
+  border-color: rgba(12, 168, 184, 0.42);
+}
+
+.card {
+  position: relative;
+  padding: 28px;
+  border-radius: 40px;
+  background:
+    radial-gradient(circle at 90% 12%, rgba(38, 212, 220, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(247, 252, 253, 0.95)),
+    #ffffff;
+  border: 1px solid rgba(14, 39, 72, 0.08);
+  box-shadow: 0 34px 100px rgba(14, 39, 72, 0.14);
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 8px;
+  background: linear-gradient(90deg, #0ca8b8, #0e2748);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.cardHeader span {
+  display: inline-flex;
+  margin-bottom: 7px;
+  color: #0ca8b8;
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+}
+
+.cardHeader strong {
+  display: block;
+  color: #0e2748;
+  font-size: 31px;
+  letter-spacing: -0.05em;
+}
+
+.headerIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 23px;
+  background:
+    radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.7), transparent 34%),
+    linear-gradient(135deg, #0ca8b8, #0e2748);
+  color: #ffffff;
+  box-shadow: 0 18px 38px rgba(12, 168, 184, 0.22);
+}
+
+.contactList {
+  display: grid;
+  gap: 12px;
+}
+
+.contactItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 17px;
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(14, 39, 72, 0.08);
+  text-decoration: none;
+  box-shadow: 0 14px 34px rgba(14, 39, 72, 0.045);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.contactItem:hover {
+  border-color: rgba(12, 168, 184, 0.3);
+  box-shadow: 0 18px 38px rgba(14, 39, 72, 0.08);
+  background: rgba(248, 252, 253, 0.9);
+}
+
+.itemIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 17px;
+  background: rgba(12, 168, 184, 0.08);
+  color: #0ca8b8;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.contactItem:hover .itemIcon {
+  background: #0ca8b8;
+  color: #ffffff;
+  transform: rotate(-4deg) scale(1.05);
+}
+
+.itemText {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.itemText small {
+  color: #7a8796;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.itemText strong {
+  color: #0e2748;
+  font-size: 17px;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.note {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: flex-start;
+  margin-top: 18px;
+  padding: 22px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(38, 212, 220, 0.22), transparent 26%),
+    #0e2748;
+  color: #ffffff;
+}
+
+.noteIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #26d4dc;
+}
+
+.note p {
+  margin: 0 0 8px;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.note strong {
+  display: block;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+}
+
+.note span {
+  display: block;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 15px;
+}
+
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 620px) {
+  .contact {
+    padding-top: 70px;
+    padding-bottom: 78px;
+  }
+
+  .quickActions {
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+
+  .card {
+    padding: 22px;
+    border-radius: 32px;
+  }
+
+  .cardHeader strong {
+    font-size: 25px;
+  }
+
+  .headerIcon {
+    width: 52px;
+    height: 52px;
+    border-radius: 20px;
+  }
+
+  .contactItem {
+    grid-template-columns: 1fr;
+  }
+
+  .note {
+    grid-template-columns: 1fr;
+  }
+}
