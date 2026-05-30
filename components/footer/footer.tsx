@@ -16,6 +16,12 @@ const products = [
   "Rrjeta kundër insekteve",
 ];
 
+const legalLinks = [
+  { href: "/impressum", label: "Impressum" },
+  { href: "/datenschutz", label: "Privatësia" },
+  { href: "/agb", label: "Kushtet" },
+];
+
 export function Footer() {
   return (
     <footer className={styles.footer}>
@@ -85,7 +91,13 @@ export function Footer() {
         <span>
           © {new Date().getFullYear()} ALUROL. Të gjitha të drejtat e rezervuara.
         </span>
-        <span>Roleta • Venecianë • Variolight</span>
+        <span className={styles.legalLinks}>
+          {legalLinks.map((link) => (
+            <a key={link.href} href={link.href}>
+              {link.label}
+            </a>
+          ))}
+        </span>
       </div>
     </footer>
   );

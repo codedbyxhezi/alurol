@@ -204,12 +204,32 @@
 .bottom {
   position: relative;
   z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 14px;
   padding-top: 24px;
   color: rgba(255, 255, 255, 0.48);
   font-size: 14px;
+  text-align: center;
+  padding-bottom: 96px;
+}
+
+.legalLinks {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.legalLinks a {
+  color: rgba(255, 255, 255, 0.48);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.legalLinks a:hover {
+  color: #26d4dc;
 }
 
 @media (max-width: 980px) {
@@ -249,9 +269,5 @@
 
   .ctaButton {
     width: 100%;
-  }
-
-  .bottom {
-    flex-direction: column;
   }
 }
