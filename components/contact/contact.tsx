@@ -81,14 +81,14 @@ export function Contact() {
           viewport={{ once: true, margin: "-90px" }}
           transition={{ type: "spring", stiffness: 220, damping: 22 }}
         >
-          <div className={styles.cardHeader}>
+          <div className={styles.cardTop}>
             <div>
               <span>ALUROL</span>
               <strong>Gostivar</strong>
             </div>
 
-            <div className={styles.headerIcon} aria-hidden="true">
-              <MapPin size={26} strokeWidth={1.8} />
+            <div className={styles.locationIcon} aria-hidden="true">
+              <MapPin size={25} strokeWidth={1.9} />
             </div>
           </div>
 
@@ -108,7 +108,7 @@ export function Contact() {
                   transition={{ duration: 0.28, delay: index * 0.06 }}
                 >
                   <span className={styles.itemIcon} aria-hidden="true">
-                    <Icon size={21} strokeWidth={1.8} />
+                    <Icon size={21} strokeWidth={1.9} />
                   </span>
 
                   <span className={styles.itemText}>
@@ -120,15 +120,15 @@ export function Contact() {
             })}
           </div>
 
-          <div className={styles.note}>
-            <span className={styles.noteIcon} aria-hidden="true">
-              <Clock size={22} strokeWidth={1.8} />
-            </span>
+          <div className={styles.hoursCard}>
+            <div className={styles.hoursIcon} aria-hidden="true">
+              <Clock size={22} strokeWidth={1.9} />
+            </div>
 
-            <div>
-              <p>Orari</p>
+            <div className={styles.hoursText}>
+              <span>Orari</span>
               <strong>E hënë - E shtunë</strong>
-              <span>Sipas marrëveshjes</span>
+              <p>07:00 - 17:00</p>
             </div>
           </div>
         </motion.div>

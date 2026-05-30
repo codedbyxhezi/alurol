@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import styles from "./gallery.module.css";
 
@@ -9,18 +10,21 @@ const projects = [
     category: "Eksterier",
     description:
       "Zgjidhje për privatësi, mbrojtje nga dielli dhe pamje të pastër në fasadë.",
+    image: "/gallery/roleta-project.png",
   },
   {
     title: "Venecianë për interier",
     category: "Interier",
     description:
       "Kontroll elegant i dritës për shtëpi, zyra dhe lokale moderne.",
+    image: "/gallery/veneciane-project.png",
   },
   {
     title: "Variolight premium",
     category: "Premium",
     description:
       "Hijezim modern me pamje të lehtë, të pastër dhe të përshtatshme për çdo hapësirë.",
+    image: "/gallery/variolight-project.png",
   },
 ];
 
@@ -57,8 +61,8 @@ export function Gallery() {
           viewport={{ once: true, margin: "-90px" }}
           transition={{ duration: 0.55, delay: 0.08 }}
         >
-          Këtu mund të vendosen më vonë fotografi reale të punimeve. Për
-          momentin, seksioni tregon stilin dhe atmosferën e zgjidhjeve ALUROL.
+          Shembuj vizualë të zgjidhjeve moderne për hijezim, privatësi dhe
+          rehati në hapësira të ndryshme.
         </motion.p>
       </div>
 
@@ -79,21 +83,15 @@ export function Gallery() {
             }}
           >
             <div className={styles.visual}>
-              <div className={styles.window}>
-                <div className={styles.light} />
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={1000}
+                height={1200}
+                className={styles.projectImage}
+              />
 
-                <div className={styles.slats}>
-                  {Array.from({ length: 10 }).map((_, slatIndex) => (
-                    <span key={slatIndex} />
-                  ))}
-                </div>
-
-                <div className={styles.reflection} />
-              </div>
-
-              <div className={styles.floor} />
-              <div className={styles.objectOne} />
-              <div className={styles.objectTwo} />
+              <div className={styles.imageOverlay} />
             </div>
 
             <div className={styles.body}>

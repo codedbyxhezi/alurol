@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   BugOff,
   PanelsTopLeft,
@@ -18,6 +19,7 @@ const products = [
     number: "01",
     specs: ["Izolim", "Privatësi", "Sipas masës"],
     icon: ShieldCheck,
+    image: "/products/roleta.png",
   },
   {
     title: "Venecianë",
@@ -27,6 +29,7 @@ const products = [
     number: "02",
     specs: ["Kontroll drite", "Pamje elegante", "Praktike"],
     icon: SlidersHorizontal,
+    image: "/products/veneciane.png",
   },
   {
     title: "Variolight",
@@ -36,6 +39,7 @@ const products = [
     number: "03",
     specs: ["Design modern", "Komoditet", "Hijezim"],
     icon: PanelsTopLeft,
+    image: "/products/variolight.png",
   },
   {
     title: "Rrjeta kundër insekteve",
@@ -45,6 +49,7 @@ const products = [
     number: "04",
     specs: ["Diskrete", "Ajrosje", "Mbrojtje"],
     icon: BugOff,
+    image: "/products/rrjeta.png",
   },
 ];
 
@@ -116,21 +121,24 @@ export function Products() {
               </div>
 
               <div className={styles.visual}>
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  width={900}
+                  height={700}
+                  className={styles.productImage}
+                />
+
+                <div className={styles.imageOverlay} />
+
                 <motion.div
                   className={styles.iconBox}
                   aria-hidden="true"
                   whileHover={{ rotate: -5, scale: 1.08 }}
                   transition={{ type: "spring", stiffness: 260, damping: 16 }}
                 >
-                  <Icon size={30} strokeWidth={1.8} />
+                  <Icon size={26} strokeWidth={1.8} />
                 </motion.div>
-
-                <div className={styles.slats} aria-hidden="true">
-                  <span />
-                  <span />
-                  <span />
-                  <span />
-                </div>
               </div>
 
               <h3>{product.title}</h3>

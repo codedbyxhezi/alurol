@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import styles from "./showcase.module.css";
 
@@ -12,7 +13,7 @@ const highlights = [
   {
     value: "02",
     title: "Pamje e pastër",
-    text: "Forma të thjeshta, ngjyra neutrale dhe montim që përshtatet me interierin.",
+    text: "Forma moderne, ngjyra të qeta dhe montim që përshtatet me interierin.",
   },
   {
     value: "03",
@@ -52,27 +53,25 @@ export function Showcase() {
       <div className={styles.layout}>
         <motion.div
           className={styles.scene}
-          initial={{ opacity: 0, x: -34 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: -34, scale: 0.97 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          whileHover={{ y: -8 }}
           viewport={{ once: true, margin: "-90px" }}
-          transition={{ duration: 0.65 }}
+          transition={{
+            type: "spring",
+            stiffness: 220,
+            damping: 24,
+          }}
         >
-          <div className={styles.room}>
-            <div className={styles.wallLight} />
-            <div className={styles.windowLarge}>
-              <div className={styles.windowFrame}>
-                <div className={styles.blinds}>
-                  {Array.from({ length: 11 }).map((_, index) => (
-                    <span key={index} />
-                  ))}
-                </div>
-              </div>
-            </div>
+          <Image
+            src="/showcase-interior.png"
+            alt="Interier modern me venecianë ALUROL"
+            width={1280}
+            height={960}
+            className={styles.sceneImage}
+          />
 
-            <div className={styles.floor} />
-            <div className={styles.sofa} />
-            <div className={styles.table} />
-          </div>
+          <div className={styles.imageShade} />
 
           <div className={styles.sceneBadge}>
             <span>ALUROL</span>
@@ -100,10 +99,17 @@ export function Showcase() {
                 key={item.title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ x: 8 }}
                 viewport={{ once: true, margin: "-90px" }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 220,
+                  damping: 22,
+                  delay: index * 0.06,
+                }}
               >
                 <span>{item.value}</span>
+
                 <div>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
@@ -116,6 +122,7 @@ export function Showcase() {
             className={styles.technicalBox}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -5 }}
             viewport={{ once: true, margin: "-90px" }}
             transition={{ duration: 0.55, delay: 0.12 }}
           >

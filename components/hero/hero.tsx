@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import styles from "./hero.module.css";
 
@@ -72,42 +73,15 @@ export function Hero() {
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ duration: 0.85, ease: "easeOut", delay: 0.12 }}
         >
-          <div className={styles.visualFrame}>
-            <div className={styles.verticalLabel}>ALUROL</div>
-
-            <div className={styles.windowMockup}>
-              <div className={styles.mockupTop}>
-                <span />
-                <span />
-                <span />
-              </div>
-
-              <div className={styles.window}>
-                <div className={styles.sunGlow} />
-
-                <div className={styles.blindSystem}>
-                  {Array.from({ length: 13 }).map((_, index) => (
-                    <span key={index} />
-                  ))}
-                </div>
-
-                <div className={styles.centerLine} />
-                <div className={styles.reflection} />
-              </div>
-            </div>
-
-            <div className={styles.floatingEstimate}>
-              <small>Procesi</small>
-              <strong>Matje → Prodhim → Montim</strong>
-            </div>
-
-            <div className={styles.floatingQuality}>
-              <span>✓</span>
-              <div>
-                <strong>Montim i pastër</strong>
-                <small>Sipas masës së dritares</small>
-              </div>
-            </div>
+          <div className={styles.imageCard}>
+            <Image
+              src="/hero-card.png"
+              alt="Sistem modern roletash ALUROL"
+              width={1280}
+              height={1024}
+              priority
+              className={styles.heroImage}
+            />
           </div>
         </motion.div>
       </div>
