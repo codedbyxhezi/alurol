@@ -8,19 +8,23 @@ import styles from "./navbar.module.css";
 
 const navItems = [
   {
-    href: "#produktet",
+    href: "/produktet",
     label: "Produktet",
   },
   {
-    href: "#sherbimet",
+    href: "/sherbimet",
     label: "Shërbimet",
   },
   {
-    href: "#rreth-nesh",
+    href: "/rreth-nesh",
     label: "Rreth nesh",
   },
   {
-    href: "#kontakt",
+    href: "/projektet",
+    label: "Projektet",
+  },
+  {
+    href: "/kontakt",
     label: "Kontakt",
   },
 ];
@@ -53,7 +57,7 @@ export function Navbar() {
         ))}
       </nav>
 
-      <a className={styles.cta} href="#kontakt">
+      <a className={styles.cta} href="/kontakt">
         Kërko ofertë
         <span aria-hidden="true">→</span>
       </a>
@@ -107,7 +111,7 @@ export function Navbar() {
               </a>
             </div>
 
-            <a className={styles.mobileCta} href="#kontakt" onClick={closeMenu}>
+            <a className={styles.mobileCta} href="/kontakt" onClick={closeMenu}>
               Kërko ofertë
               <span aria-hidden="true">→</span>
             </a>
