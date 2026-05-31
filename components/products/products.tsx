@@ -15,19 +15,19 @@ import styles from "./products.module.css";
 const productAssets = [
   {
     icon: ShieldCheck,
-    image: "/products/roleta.png",
+    image: "/products/roleta-alurol.png",
   },
   {
     icon: SlidersHorizontal,
-    image: "/products/veneciane.png",
+    image: "/products/veneciane-alurol.png",
   },
   {
     icon: PanelsTopLeft,
-    image: "/products/variolight.png",
+    image: "/products/variolight-alurol.png",
   },
   {
     icon: BugOff,
-    image: "/products/rrjeta.png",
+    image: "/products/rrjeta-alurol.png",
   },
 ];
 
