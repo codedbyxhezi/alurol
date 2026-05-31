@@ -12,14 +12,6 @@ export function FloatingContact() {
       transition={{ duration: 0.45, delay: 0.8 }}
     >
       <a
-        className={styles.phone}
-        href="tel:+38970314249"
-        aria-label="Telefono ALUROL"
-      >
-        <span>☎</span>
-      </a>
-
-      <a
         className={styles.main}
         href="https://wa.me/38970314249"
         target="_blank"

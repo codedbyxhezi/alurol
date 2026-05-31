@@ -1,0 +1,55 @@
+.loading {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(38, 212, 220, 0.18), transparent 32%),
+    linear-gradient(135deg, #edf6f8 0%, #ffffff 100%);
+}
+
+.logoWrap {
+  display: grid;
+  justify-items: center;
+  gap: 24px;
+  padding: 34px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(14, 39, 72, 0.08);
+  box-shadow: 0 28px 90px rgba(14, 39, 72, 0.12);
+  backdrop-filter: blur(18px);
+}
+
+.logo {
+  width: 180px;
+  height: auto;
+  display: block;
+  animation: logoPulse 1.4s ease-in-out infinite;
+}
+
+.spinner {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 3px solid rgba(14, 39, 72, 0.12);
+  border-top-color: #0ca8b8;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes logoPulse {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(0.98);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

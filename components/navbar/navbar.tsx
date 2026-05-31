@@ -76,15 +76,19 @@ export function Navbar() {
         </a>
       </div>
 
-      <button
-        className={styles.menuButton}
-        type="button"
-        aria-label={isOpen ? "Close menu" : "Open menu"}
-        aria-expanded={isOpen}
-        onClick={() => setIsOpen((current) => !current)}
-      >
-        {isOpen ? <X size={23} /> : <Menu size={23} />}
-      </button>
+      <div className={styles.mobileControls}>
+        <LanguageSwitcher />
+
+        <button
+          className={styles.menuButton}
+          type="button"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen((current) => !current)}
+        >
+          {isOpen ? <X size={23} /> : <Menu size={23} />}
+        </button>
+      </div>
 
       {isOpen && (
         <div className={styles.mobileMenu}>
@@ -100,10 +104,6 @@ export function Navbar() {
               </a>
             ))}
           </nav>
-
-          <div className={styles.mobileLanguage}>
-            <LanguageSwitcher />
-          </div>
 
           <a
             className={styles.mobileCta}
