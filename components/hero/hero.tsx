@@ -57,16 +57,65 @@ export function Hero() {
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ duration: 0.85, ease: "easeOut", delay: 0.12 }}
         >
-          <div className={styles.imageCard}>
+          <motion.div
+            className={styles.imageCard}
+            whileHover={{
+              y: -12,
+              rotateX: 3,
+              rotateY: -4,
+              scale: 1.015,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 180,
+              damping: 18,
+            }}
+          >
+            <div className={styles.cardGlow} />
+
             <Image
-              src="/hero-card.png"
+              src="/hero-card-alurol.png"
               alt={t.hero.imageAlt}
               width={1280}
               height={1024}
               priority
               className={styles.heroImage}
             />
-          </div>
+
+            <motion.div
+              className={styles.floatingProcess}
+              animate={{
+                y: [0, -8, 0],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <small>Procesi</small>
+              <strong>Matje → Prodhim → Montim</strong>
+            </motion.div>
+
+            <motion.div
+              className={styles.floatingQuality}
+              animate={{
+                y: [0, 8, 0],
+              }}
+              transition={{
+                duration: 4.8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <span>✓</span>
+
+              <div>
+                <strong>Montim i pastër</strong>
+                <small>Sipas masës së dritares</small>
+              </div>
+            </motion.div>
+          </motion.div>
         </motion.div>
       </div>
 
