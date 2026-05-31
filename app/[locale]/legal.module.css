@@ -65,11 +65,18 @@
 }
 
 .title {
-  margin: 0 0 42px;
+  margin: 0 0 16px;
   color: #0e2748;
   font-size: clamp(36px, 5vw, 62px);
   line-height: 1;
   letter-spacing: -0.055em;
+}
+
+.updated {
+  margin: 0 0 34px;
+  color: #8190a2;
+  font-size: 14px;
+  font-weight: 750;
 }
 
 .section {
@@ -90,33 +97,15 @@
   letter-spacing: -0.035em;
 }
 
-.section p,
-.section li {
+.section p {
+  margin: 0 0 12px;
   color: #5f7084;
   font-size: 16px;
   line-height: 1.75;
 }
 
-.section p {
-  margin: 0 0 12px;
-}
-
 .section p:last-child {
   margin-bottom: 0;
-}
-
-.section strong {
-  color: #0e2748;
-  font-weight: 900;
-}
-
-.section ul {
-  margin: 12px 0 0;
-  padding-left: 22px;
-}
-
-.section li {
-  margin-bottom: 8px;
 }
 
 .infoBox {
@@ -146,7 +135,7 @@
   }
 
   .title {
-    margin-bottom: 32px;
+    margin-bottom: 14px;
   }
 
   .section {
@@ -157,8 +146,7 @@
     font-size: 21px;
   }
 
-  .section p,
-  .section li {
+  .section p {
     font-size: 15.5px;
   }
 }

@@ -2,27 +2,15 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { getDictionary, getLocaleFromPathname } from "../../lib/i18n";
 import styles from "./showcase.module.css";
 
-const highlights = [
-  {
-    value: "01",
-    title: "Dritë e kontrolluar",
-    text: "Hijezim i saktë gjatë ditës, pa e rënduar pamjen e hapësirës.",
-  },
-  {
-    value: "02",
-    title: "Pamje e pastër",
-    text: "Forma moderne, ngjyra të qeta dhe montim që përshtatet me interierin.",
-  },
-  {
-    value: "03",
-    title: "Punim sipas masës",
-    text: "Çdo element përgatitet sipas dimensioneve reale të dritares.",
-  },
-];
-
 export function Showcase() {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+  const t = getDictionary(locale);
+
   return (
     <section className={styles.showcase} id="rreth-nesh">
       <div className={styles.decorOne} />
@@ -36,7 +24,7 @@ export function Showcase() {
           viewport={{ once: true, margin: "-90px" }}
           transition={{ duration: 0.45 }}
         >
-          Hapësira më të qeta
+          {t.showcaseSection.kicker}
         </motion.span>
 
         <motion.h2
@@ -46,7 +34,7 @@ export function Showcase() {
           viewport={{ once: true, margin: "-90px" }}
           transition={{ duration: 0.55 }}
         >
-          Hijezim që duket mirë, funksionon çdo ditë dhe përshtatet me stilin e objektit.
+          {t.showcaseSection.title}
         </motion.h2>
       </div>
 
@@ -65,7 +53,7 @@ export function Showcase() {
         >
           <Image
             src="/showcase-interior.png"
-            alt="Interier modern me venecianë ALUROL"
+            alt={t.showcaseSection.imageAlt}
             width={1280}
             height={960}
             className={styles.sceneImage}
@@ -74,8 +62,8 @@ export function Showcase() {
           <div className={styles.imageShade} />
 
           <div className={styles.sceneBadge}>
-            <span>ALUROL</span>
-            <strong>Interior comfort</strong>
+            <span>{t.showcaseSection.badgeLabel}</span>
+            <strong>{t.showcaseSection.badgeTitle}</strong>
           </div>
         </motion.div>
 
@@ -87,13 +75,11 @@ export function Showcase() {
             viewport={{ once: true, margin: "-90px" }}
             transition={{ duration: 0.55 }}
           >
-            Produktet tona nuk janë vetëm mbrojtje nga dielli. Ato ndikojnë në
-            atmosferën e dhomës, privatësinë, temperaturën dhe pamjen e
-            përgjithshme të shtëpisë apo lokalit.
+            {t.showcaseSection.text}
           </motion.p>
 
           <div className={styles.highlights}>
-            {highlights.map((item, index) => (
+            {t.showcaseSection.highlights.map((item, index) => (
               <motion.article
                 className={styles.highlight}
                 key={item.title}
@@ -126,11 +112,8 @@ export function Showcase() {
             viewport={{ once: true, margin: "-90px" }}
             transition={{ duration: 0.55, delay: 0.12 }}
           >
-            <span>Detaj teknik</span>
-            <p>
-              Para çdo montimi kontrollohen masat, hapësira e instalimit dhe
-              mënyra më e përshtatshme e fiksimit.
-            </p>
+            <span>{t.showcaseSection.technicalLabel}</span>
+            <p>{t.showcaseSection.technicalText}</p>
           </motion.div>
         </div>
       </div>

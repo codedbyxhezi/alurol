@@ -1,0 +1,41 @@
+.switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  border-radius: 999px;
+  background: rgba(14, 39, 72, 0.055);
+  border: 1px solid rgba(14, 39, 72, 0.08);
+}
+
+.switcher a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 34px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition:
+    background 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.switcher a:hover {
+  transform: translateY(-1px);
+}
+
+.flag {
+  display: block;
+  width: 26px;
+  height: 18px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(14, 39, 72, 0.16);
+}
+
+.active {
+  background: #0e2748;
+  box-shadow: 0 10px 24px rgba(14, 39, 72, 0.16);
+}

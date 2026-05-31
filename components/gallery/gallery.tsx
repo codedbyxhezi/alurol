@@ -2,33 +2,21 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { getDictionary, getLocaleFromPathname } from "../../lib/i18n";
 import styles from "./gallery.module.css";
 
-const projects = [
-  {
-    title: "Roleta për dritare të mëdha",
-    category: "Eksterier",
-    description:
-      "Zgjidhje për privatësi, mbrojtje nga dielli dhe pamje të pastër në fasadë.",
-    image: "/gallery/roleta-project.png",
-  },
-  {
-    title: "Venecianë për interier",
-    category: "Interier",
-    description:
-      "Kontroll elegant i dritës për shtëpi, zyra dhe lokale moderne.",
-    image: "/gallery/veneciane-project.png",
-  },
-  {
-    title: "Variolight premium",
-    category: "Premium",
-    description:
-      "Hijezim modern me pamje të lehtë, të pastër dhe të përshtatshme për çdo hapësirë.",
-    image: "/gallery/variolight-project.png",
-  },
+const projectImages = [
+  "/gallery/roleta-project.png",
+  "/gallery/veneciane-project.png",
+  "/gallery/variolight-project.png",
 ];
 
 export function Gallery() {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+  const t = getDictionary(locale);
+
   return (
     <section className={styles.gallery} id="projektet">
       <div className={styles.backgroundShape} />
@@ -41,7 +29,7 @@ export function Gallery() {
           viewport={{ once: true, margin: "-90px" }}
           transition={{ duration: 0.45 }}
         >
-          Projekte
+          {t.gallerySection.kicker}
         </motion.span>
 
         <motion.h2
@@ -51,7 +39,7 @@ export function Gallery() {
           viewport={{ once: true, margin: "-90px" }}
           transition={{ duration: 0.55 }}
         >
-          Pamje moderne për shtëpi, zyra dhe lokale.
+          {t.gallerySection.title}
         </motion.h2>
 
         <motion.p
@@ -61,13 +49,12 @@ export function Gallery() {
           viewport={{ once: true, margin: "-90px" }}
           transition={{ duration: 0.55, delay: 0.08 }}
         >
-          Shembuj vizualë të zgjidhjeve moderne për hijezim, privatësi dhe
-          rehati në hapësira të ndryshme.
+          {t.gallerySection.text}
         </motion.p>
       </div>
 
       <div className={styles.grid}>
-        {projects.map((project, index) => (
+        {t.gallerySection.projects.map((project, index) => (
           <motion.article
             className={styles.card}
             key={project.title}
@@ -84,8 +71,8 @@ export function Gallery() {
           >
             <div className={styles.visual}>
               <Image
-                src={project.image}
-                alt={project.title}
+                src={projectImages[index]}
+                alt={project.imageAlt}
                 width={1000}
                 height={1200}
                 className={styles.projectImage}

@@ -1,123 +1,120 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { getDictionary, getLocaleFromPathname } from "../../lib/i18n";
+import { LanguageSwitcher } from "../language-switcher/language-switcher";
 import styles from "./navbar.module.css";
-
-const navItems = [
-  {
-    href: "/produktet",
-    label: "Produktet",
-  },
-  {
-    href: "/sherbimet",
-    label: "Shërbimet",
-  },
-  {
-    href: "/rreth-nesh",
-    label: "Rreth nesh",
-  },
-  {
-    href: "/projektet",
-    label: "Projektet",
-  },
-  {
-    href: "/kontakt",
-    label: "Kontakt",
-  },
-];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
-  function closeMenu() {
+  const locale = getLocaleFromPathname(pathname);
+  const t = getDictionary(locale);
+
+  const navItems = [
+    {
+      href: t.routes.products,
+      label: t.nav.products,
+    },
+    {
+      href: t.routes.services,
+      label: t.nav.services,
+    },
+    {
+      href: t.routes.about,
+      label: t.nav.about,
+    },
+    {
+      href: t.routes.projects,
+      label: t.nav.projects,
+    },
+    {
+      href: t.routes.contact,
+      label: t.nav.contact,
+    },
+  ];
+
+  const closeMenu = () => {
     setIsOpen(false);
-  }
+  };
 
   return (
     <header className={styles.header}>
-      <Link href="/" className={styles.logo} aria-label="ALUROL faqja kryesore">
+      <a href={t.routes.home} className={styles.logoLink} aria-label="ALUROL">
         <Image
           src="/alurol-logo-new.png"
           alt="ALUROL"
-          width={260}
-          height={90}
+          width={220}
+          height={78}
           priority
-          className={styles.logoImage}
+          className={styles.logo}
         />
-      </Link>
+      </a>
 
-      <nav className={styles.nav} aria-label="Navigimi kryesor">
+      <nav className={styles.nav} aria-label="Main navigation">
         {navItems.map((item) => (
-          <a key={item.href} href={item.href} className={styles.navLink}>
+          <a
+            key={item.href}
+            href={item.href}
+            className={pathname === item.href ? styles.activeLink : ""}
+          >
             {item.label}
           </a>
         ))}
       </nav>
 
-      <a className={styles.cta} href="/kontakt">
-        Kërko ofertë
-        <span aria-hidden="true">→</span>
-      </a>
+      <div className={styles.rightSide}>
+        <LanguageSwitcher />
+
+        <a className={styles.cta} href={t.routes.contact}>
+          {t.nav.cta}
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
 
       <button
         className={styles.menuButton}
         type="button"
-        aria-label={isOpen ? "Mbyll menynë" : "Hap menynë"}
+        aria-label={isOpen ? "Close menu" : "Open menu"}
         aria-expanded={isOpen}
         onClick={() => setIsOpen((current) => !current)}
       >
-        <span className={isOpen ? styles.lineOpenTop : ""} />
-        <span className={isOpen ? styles.lineOpenMiddle : ""} />
-        <span className={isOpen ? styles.lineOpenBottom : ""} />
+        {isOpen ? <X size={23} /> : <Menu size={23} />}
       </button>
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className={styles.mobileMenu}
-            initial={{ opacity: 0, y: -14, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -14, scale: 0.98 }}
-            transition={{ duration: 0.22, ease: "easeOut" }}
-          >
-            <div className={styles.mobileTop}>
-              <span>Menu</span>
-              <strong>ALUROL</strong>
-            </div>
-
-            <nav className={styles.mobileNav} aria-label="Navigimi mobil">
-              {navItems.map((item, index) => (
-                <motion.a
-                  key={item.href}
-                  href={item.href}
-                  onClick={closeMenu}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.22, delay: index * 0.04 }}
-                >
-                  <span>0{index + 1}</span>
-                  {item.label}
-                </motion.a>
-              ))}
-            </nav>
-
-            <div className={styles.mobileContact}>
-              <span>Kontakt direkt</span>
-              <a href="tel:+38970314249" onClick={closeMenu}>
-                +389 (0) 70 314 249
+      {isOpen && (
+        <div className={styles.mobileMenu}>
+          <nav className={styles.mobileNav} aria-label="Mobile navigation">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={closeMenu}
+                className={pathname === item.href ? styles.activeMobileLink : ""}
+              >
+                {item.label}
               </a>
-            </div>
+            ))}
+          </nav>
 
-            <a className={styles.mobileCta} href="/kontakt" onClick={closeMenu}>
-              Kërko ofertë
-              <span aria-hidden="true">→</span>
-            </a>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          <div className={styles.mobileLanguage}>
+            <LanguageSwitcher />
+          </div>
+
+          <a
+            className={styles.mobileCta}
+            href={t.routes.contact}
+            onClick={closeMenu}
+          >
+            {t.nav.cta}
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      )}
     </header>
   );
 }

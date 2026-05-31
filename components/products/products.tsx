@@ -8,52 +8,34 @@ import {
   SlidersHorizontal,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { getDictionary, getLocaleFromPathname } from "../../lib/i18n";
 import styles from "./products.module.css";
 
-const products = [
+const productAssets = [
   {
-    title: "Roleta të jashtme",
-    description:
-      "Mbrojtje e fuqishme nga dielli, era dhe shikimet nga jashtë, me pamje të pastër dhe përdorim të përditshëm.",
-    meta: "Eksterier",
-    number: "01",
-    specs: ["Izolim", "Privatësi", "Sipas masës"],
     icon: ShieldCheck,
     image: "/products/roleta.png",
   },
   {
-    title: "Venecianë",
-    description:
-      "Kontroll elegant i dritës për ambiente të brendshme, zyra, banesa dhe lokale moderne.",
-    meta: "Interier",
-    number: "02",
-    specs: ["Kontroll drite", "Pamje elegante", "Praktike"],
     icon: SlidersHorizontal,
     image: "/products/veneciane.png",
   },
   {
-    title: "Variolight",
-    description:
-      "Sistem modern hijezimi me pamje premium, i përshtatshëm për interiere të pastra dhe bashkëkohore.",
-    meta: "Premium",
-    number: "03",
-    specs: ["Design modern", "Komoditet", "Hijezim"],
     icon: PanelsTopLeft,
     image: "/products/variolight.png",
   },
   {
-    title: "Rrjeta kundër insekteve",
-    description:
-      "Zgjidhje diskrete për mbrojtje nga insektet, pa e penguar ajrosjen dhe përdorimin e dritares.",
-    meta: "Funksionale",
-    number: "04",
-    specs: ["Diskrete", "Ajrosje", "Mbrojtje"],
     icon: BugOff,
     image: "/products/rrjeta.png",
   },
 ];
 
 export function Products() {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+  const t = getDictionary(locale);
+
   return (
     <section className={styles.products} id="produktet">
       <div className={styles.decor} />
@@ -66,7 +48,7 @@ export function Products() {
           viewport={{ once: true, margin: "-90px" }}
           transition={{ duration: 0.45 }}
         >
-          Produktet
+          {t.productsSection.kicker}
         </motion.span>
 
         <motion.h2
@@ -76,7 +58,7 @@ export function Products() {
           viewport={{ once: true, margin: "-90px" }}
           transition={{ duration: 0.55 }}
         >
-          Zgjidhje të zgjedhura për dritare, fasada dhe interiere moderne.
+          {t.productsSection.title}
         </motion.h2>
 
         <motion.p
@@ -86,14 +68,14 @@ export function Products() {
           viewport={{ once: true, margin: "-90px" }}
           transition={{ duration: 0.55, delay: 0.08 }}
         >
-          Çdo produkt matet dhe përgatitet sipas objektit tuaj. Qëllimi është
-          i thjeshtë: funksion i sigurt, pamje e pastër dhe përdorim afatgjatë.
+          {t.productsSection.text}
         </motion.p>
       </div>
 
       <div className={styles.grid}>
-        {products.map((product, index) => {
-          const Icon = product.icon;
+        {t.productsSection.items.map((product, index) => {
+          const asset = productAssets[index];
+          const Icon = asset.icon;
 
           return (
             <motion.article
@@ -122,8 +104,8 @@ export function Products() {
 
               <div className={styles.visual}>
                 <Image
-                  src={product.image}
-                  alt={product.title}
+                  src={asset.image}
+                  alt={product.imageAlt}
                   width={900}
                   height={700}
                   className={styles.productImage}
@@ -150,8 +132,8 @@ export function Products() {
                 ))}
               </ul>
 
-              <a href="#kontakt" className={styles.link}>
-                Kërko informacion
+              <a href={t.routes.contact} className={styles.link}>
+                {t.productsSection.linkLabel}
                 <span aria-hidden="true">→</span>
               </a>
             </motion.article>

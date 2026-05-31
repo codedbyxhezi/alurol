@@ -2,26 +2,15 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { getDictionary, getLocaleFromPathname } from "../../lib/i18n";
 import styles from "./hero.module.css";
 
-const stats = [
-  {
-    value: "10+",
-    label: "Vite përvojë",
-  },
-  {
-    value: "500+",
-    label: "Montime të realizuara",
-  },
-  {
-    value: "24h",
-    label: "Përgjigje për ofertë",
-  },
-];
-
-const features = ["Roleta", "Venecianë", "Variolight", "Rrjeta"];
-
 export function Hero() {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+  const t = getDictionary(locale);
+
   return (
     <section className={styles.hero}>
       <div className={styles.noise} />
@@ -37,31 +26,26 @@ export function Hero() {
         >
           <div className={styles.badge}>
             <span />
-            Sisteme hijezimi sipas masës
+            {t.hero.badge}
           </div>
 
-          <h1 className={styles.title}>
-            Hije, privatësi dhe rehati — të dizajnuara për hapësirën tuaj.
-          </h1>
+          <h1 className={styles.title}>{t.hero.title}</h1>
 
-          <p className={styles.description}>
-            ALUROL krijon dhe monton roleta, venecianë dhe sisteme moderne
-            hijezimi për shtëpi, zyra dhe lokale në Gostivar dhe rrethinë.
-          </p>
+          <p className={styles.description}>{t.hero.description}</p>
 
           <div className={styles.actions}>
-            <a href="#kontakt" className={styles.primaryButton}>
-              Kërko ofertë
+            <a href={t.routes.contact} className={styles.primaryButton}>
+              {t.hero.primaryCta}
               <span aria-hidden="true">→</span>
             </a>
 
-            <a href="#produktet" className={styles.secondaryButton}>
-              Shiko produktet
+            <a href={t.routes.products} className={styles.secondaryButton}>
+              {t.hero.secondaryCta}
             </a>
           </div>
 
           <div className={styles.featureList}>
-            {features.map((feature) => (
+            {t.hero.features.map((feature) => (
               <span key={feature}>{feature}</span>
             ))}
           </div>
@@ -76,7 +60,7 @@ export function Hero() {
           <div className={styles.imageCard}>
             <Image
               src="/hero-card.png"
-              alt="Sistem modern roletash ALUROL"
+              alt={t.hero.imageAlt}
               width={1280}
               height={1024}
               priority
@@ -92,7 +76,7 @@ export function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.65, delay: 0.28 }}
       >
-        {stats.map((stat) => (
+        {t.hero.stats.map((stat) => (
           <div key={stat.label}>
             <strong>{stat.value}</strong>
             <span>{stat.label}</span>

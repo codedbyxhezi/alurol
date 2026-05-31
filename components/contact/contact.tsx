@@ -2,30 +2,17 @@
 
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { getDictionary, getLocaleFromPathname } from "../../lib/i18n";
 import styles from "./contact.module.css";
 
-const contactItems = [
-  {
-    label: "Telefon",
-    value: "+389 (0) 70 314 249",
-    href: "tel:+38970314249",
-    icon: Phone,
-  },
-  {
-    label: "E-mail",
-    value: "alurol_gv@live.com",
-    href: "mailto:alurol_gv@live.com",
-    icon: Mail,
-  },
-  {
-    label: "Adresa",
-    value: "Rr. Beliçica 113/A, 1230 Gostivar",
-    href: "https://www.google.com/maps/search/?api=1&query=Rr.+Beliçica+113%2FA+1230+Gostivar",
-    icon: MapPin,
-  },
-];
+const contactIcons = [Phone, Mail, MapPin];
 
 export function Contact() {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+  const t = getDictionary(locale);
+
   return (
     <section className={styles.contact} id="kontakt">
       <div className={styles.backgroundCircle} />
@@ -39,17 +26,11 @@ export function Contact() {
           viewport={{ once: true, margin: "-90px" }}
           transition={{ duration: 0.55 }}
         >
-          <span className={styles.kicker}>Kontakt</span>
+          <span className={styles.kicker}>{t.contactSection.kicker}</span>
 
-          <h2 className={styles.title}>
-            Le ta gjejmë zgjidhjen e duhur për dritaret tuaja.
-          </h2>
+          <h2 className={styles.title}>{t.contactSection.title}</h2>
 
-          <p className={styles.text}>
-            Na kontaktoni për matje, këshillim ose ofertë. Ju përgjigjemi
-            shpejt dhe ju ndihmojmë të zgjidhni sistemin më të përshtatshëm
-            për shtëpinë, zyrën apo lokalin tuaj.
-          </p>
+          <p className={styles.text}>{t.contactSection.text}</p>
 
           <div className={styles.quickActions}>
             <motion.a
@@ -58,7 +39,7 @@ export function Contact() {
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.98 }}
             >
-              Thirr tani
+              {t.contactSection.primaryCta}
               <span aria-hidden="true">→</span>
             </motion.a>
 
@@ -68,7 +49,7 @@ export function Contact() {
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.98 }}
             >
-              Dërgo e-mail
+              {t.contactSection.secondaryCta}
             </motion.a>
           </div>
         </motion.div>
@@ -83,8 +64,8 @@ export function Contact() {
         >
           <div className={styles.cardTop}>
             <div>
-              <span>ALUROL</span>
-              <strong>Gostivar</strong>
+              <span>{t.contactSection.cardLabel}</span>
+              <strong>{t.contactSection.cardTitle}</strong>
             </div>
 
             <div className={styles.locationIcon} aria-hidden="true">
@@ -93,8 +74,8 @@ export function Contact() {
           </div>
 
           <div className={styles.contactList}>
-            {contactItems.map((item, index) => {
-              const Icon = item.icon;
+            {t.contactSection.items.map((item, index) => {
+              const Icon = contactIcons[index];
 
               return (
                 <motion.a
@@ -126,9 +107,9 @@ export function Contact() {
             </div>
 
             <div className={styles.hoursText}>
-              <span>Orari</span>
-              <strong>E hënë - E shtunë</strong>
-              <p>07:00 - 17:00</p>
+              <span>{t.contactSection.hoursLabel}</span>
+              <strong>{t.contactSection.hoursTitle}</strong>
+              <p>{t.contactSection.hoursValue}</p>
             </div>
           </div>
         </motion.div>
