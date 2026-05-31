@@ -9,10 +9,10 @@ import { getDictionary, isLocale, type Locale } from "../../../lib/i18n";
 import styles from "./produktet.module.css";
 
 const productImages = [
-  "/products/roleta.png",
-  "/products/veneciane.png",
-  "/products/variolight.png",
-  "/products/rrjeta.png",
+  "/products/roleta-alurol.png",
+  "/products/veneciane-alurol.png",
+  "/products/variolight-alurol.png",
+  "/products/rrjeta-alurol.png",
 ];
 
 type PageProps = {
@@ -74,7 +74,7 @@ export default async function ProduktetPage({ params }: PageProps) {
 
           <div className={styles.heroVisual}>
             <Image
-              src="/hero-card.png"
+              src="/hero-card-alurol.png"
               alt={t.productPage.hero.imageAlt}
               width={1200}
               height={1000}
