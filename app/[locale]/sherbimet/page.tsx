@@ -67,7 +67,7 @@ export default async function SherbimetPage({ params }: PageProps) {
 
           <div className={styles.heroPanel}>
             <Image
-              src="/hero-card.png"
+              src="/hero-card-alurol.png"
               alt={t.servicesPage.hero.imageAlt}
               width={1200}
               height={1000}
