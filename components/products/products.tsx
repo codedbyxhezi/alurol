@@ -132,7 +132,7 @@ export function Products() {
                 ))}
               </ul>
 
-              <a href={t.routes.contact} className={styles.link}>
+              <a href={t.routes.products} className={styles.link}>
                 {t.productsSection.linkLabel}
                 <span aria-hidden="true">→</span>
               </a>

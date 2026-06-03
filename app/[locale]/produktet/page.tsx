@@ -139,6 +139,24 @@ export default async function ProduktetPage({ params }: PageProps) {
                   </div>
                 </div>
 
+                <div className={styles.optionsSection}>
+                  <h3>{t.productPage.productLabels.options}</h3>
+
+                  <div className={styles.optionsGrid}>
+                    {product.options.map((group) => (
+                      <div className={styles.optionCard} key={group.label}>
+                        <span>{group.label}</span>
+
+                        <div>
+                          {group.values.map((value) => (
+                            <small key={value}>{value}</small>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
                 <a href={t.routes.contact} className={styles.textLink}>
                   {t.productPage.productLabels.requestInfo} {product.title}
                   <span>→</span>

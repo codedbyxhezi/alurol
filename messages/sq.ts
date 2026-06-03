@@ -78,7 +78,7 @@ export const sq = {
     title: "Zgjidhje të zgjedhura për dritare, fasada dhe interiere moderne.",
     text:
       "Çdo produkt matet dhe përgatitet sipas objektit tuaj. Qëllimi është i thjeshtë: funksion i sigurt, pamje e pastër dhe përdorim afatgjatë.",
-    linkLabel: "Kërko informacion",
+    linkLabel: "Shiko detajet",
     items: [
       {
         title: "Roleta të jashtme",
@@ -250,128 +250,189 @@ export const sq = {
   },
 
   productPage: {
-    metadata: {
-      title: "Produktet | ALUROL",
+  metadata: {
+    title: "Produktet | ALUROL",
+    description:
+        "Roleta të jashtme, venecianë, Variolight dhe rrjeta kundër insekteve nga ALUROL. Montim profesional në Maqedoninë e Veriut, Gjermani dhe vende të ndryshme të Evropës.",
+  },
+
+  
+  hero: {
+    kicker: "Produktet ALUROL",
+    title: "Zgjidhje sipas masës për hijezim, privatësi dhe komoditet.",
+    text:
+      "Çdo objekt ka nevoja të ndryshme. Prandaj ALUROL ofron produkte me ngjyra, forma, materiale dhe mënyra montimi të përshtatura sipas dritares, fasadës dhe interierit.",
+    primaryCta: "Kërko ofertë",
+    secondaryCta: "Krahaso produktet",
+    imageAlt: "Sistem roletash ALUROL",
+    badgeLabel: "Sipas masës",
+    badgeTitle: "Ngjyra, materiale dhe montim sipas objektit",
+  },
+
+  productLabels: {
+    suitable: "Përshtatet për",
+    benefits: "Përfitimet",
+    options: "Opsionet",
+    colors: "Ngjyrat",
+    variants: "Variantet",
+    materials: "Materialet",
+    requestInfo: "Kërko informacion për",
+  },
+
+  products: [
+    {
+      eyebrow: "01 / Eksterier",
+      title: "Roleta të jashtme",
       description:
-        "Roleta të jashtme, venecianë, variolight dhe rrjeta kundër insekteve nga ALUROL, me seli në Gostivar dhe montim në Maqedoninë e Veriut dhe Evropë.",
-    },
-
-    hero: {
-      kicker: "Produktet ALUROL",
-      title: "Produkte të zgjedhura për hijezim, privatësi dhe komoditet.",
-      text:
-        "Çdo produkt ka rolin e vet. Ne ju ndihmojmë të zgjidhni sistemin e duhur sipas dritares, interierit, fasadës dhe nevojës për përdorim të përditshëm.",
-      primaryCta: "Kërko ofertë",
-      secondaryCta: "Krahaso produktet",
-      imageAlt: "Sistem roletash ALUROL",
-      badgeLabel: "Sipas masës",
-      badgeTitle: "Matje, përgatitje dhe montim profesional",
-    },
-
-    productLabels: {
-      suitable: "Përshtatet për",
-      benefits: "Përfitimet",
-      requestInfo: "Kërko informacion për",
-    },
-
-    products: [
-      {
-        eyebrow: "01 / Eksterier",
-        title: "Roleta të jashtme",
-        description:
-          "Roletat e jashtme janë zgjidhje e fortë për mbrojtje nga dielli, privatësi më të madhe dhe pamje të rregullt në fasadë. Ato përshtaten sipas dimensioneve të dritares dhe mënyrës së montimit.",
-        imageAlt: "Roleta të jashtme ALUROL",
-        suitable: ["Shtëpi private", "Dritare të mëdha", "Lokale", "Objekte banimi"],
-        benefits: [
-          "Mbrojtje nga dielli dhe nxehtësia",
-          "Privatësi më e mirë gjatë ditës dhe natës",
-          "Pamje e pastër në fasadë",
-          "Përgatitje sipas masës",
-        ],
-      },
-      {
-        eyebrow: "02 / Interier",
-        title: "Venecianë",
-        description:
-          "Venecianët janë idealë për kontroll të saktë të dritës në interier. Lamellat mundësojnë rregullim të dritës pa e mbyllur plotësisht hapësirën.",
-        imageAlt: "Venecianë ALUROL",
-        suitable: ["Zyra", "Banesa", "Lokale moderne", "Dhoma pune"],
-        benefits: [
-          "Kontroll i lehtë i dritës",
-          "Pamje elegante dhe teknike",
-          "Praktike për përdorim të përditshëm",
-          "Përshtaten me stile të ndryshme interieri",
-        ],
-      },
-      {
-        eyebrow: "03 / Premium",
-        title: "Variolight",
-        description:
-          "Variolight është zgjidhje moderne për hapësira ku kërkohet kombinim i hijes, dritës dhe pamjes premium. Sistemi krijon atmosferë të qetë dhe të pastër.",
-        imageAlt: "Variolight ALUROL",
-        suitable: ["Interiere premium", "Dhome ndenjeje", "Zyra elegante", "Apartamente moderne"],
-        benefits: [
-          "Pamje moderne dhe e lehtë",
-          "Balancë mes dritës dhe privatësisë",
-          "E përshtatshme për hapësira të qeta",
-          "Efekt dekorativ pa e rënduar dhomën",
-        ],
-      },
-      {
-        eyebrow: "04 / Funksionale",
-        title: "Rrjeta kundër insekteve",
-        description:
-          "Rrjetat kundër insekteve ofrojnë mbrojtje praktike gjatë sezonit të ngrohtë, duke ruajtur ajrosjen natyrale të hapësirës.",
-        imageAlt: "Rrjeta kundër insekteve ALUROL",
-        suitable: ["Kuzhina", "Dhoma gjumi", "Ballkone", "Shtëpi familjare"],
-        benefits: [
-          "Mbrojtje nga insektet",
-          "Ajrosje natyrale",
-          "Zgjidhje diskrete",
-          "Përdorim praktik gjatë verës",
-        ],
-      },
-    ],
-
-    comparison: {
-      kicker: "Krahasimi",
-      title: "Cili produkt është i duhuri për ju?",
-      text:
-        "Zgjedhja varet nga qëllimi kryesor: privatësi, kontroll drite, pamje premium ose mbrojtje praktike.",
-      items: [
+        "Roletat e jashtme janë zgjidhje e fortë për fasada, dritare dhe dyer ku kërkohet mbrojtje nga dielli, privatësi dhe pamje e pastër. Sistemi përgatitet sipas masës dhe mund të përshtatet me stilin e objektit.",
+      imageAlt: "Roleta të jashtme ALUROL",
+      suitable: ["Shtëpi private", "Dritare të mëdha", "Lokale", "Fasada moderne"],
+      benefits: [
+        "Mbrojtje nga dielli dhe nxehtësia",
+        "Privatësi më e mirë gjatë ditës dhe natës",
+        "Pamje e pastër dhe e integruar në fasadë",
+        "Përgatitje sipas dimensioneve reale",
+      ],
+      options: [
         {
-          label: "Për privatësi maksimale",
-          value: "Roleta të jashtme",
+          label: "Ngjyrat",
+          values: ["E bardhë", "Argjendtë", "Kafe"],
         },
         {
-          label: "Për kontroll të dritës",
-          value: "Venecianë",
+          label: "Kutitë e roletës",
+          values: ["Kuti 45°", "Kuti gjysmërreth", "Zgjidhje për fasadë"],
         },
         {
-          label: "Për pamje premium",
-          value: "Variolight",
-        },
-        {
-          label: "Për mbrojtje nga insektet",
-          value: "Rrjeta",
+          label: "Përdorimi",
+          values: ["Dritare", "Dyer", "Objekte banimi", "Objekte komerciale"],
         },
       ],
     },
-
-    cta: {
-      kicker: "Ende nuk jeni të sigurt?",
-      title: "Na dërgoni një foto të dritares dhe ju sugjerojmë zgjidhjen.",
-      text:
-        "Për shumë raste, mjafton një foto ose një përshkrim i hapësirës për të kuptuar cili produkt është më i përshtatshëm.",
-      button: "Kontakto ALUROL",
+    {
+      eyebrow: "02 / Interier",
+      title: "Venecianë",
+      description:
+        "Venecianët janë praktikë për kontroll të saktë të dritës në ambiente të brendshme. Ato lejojnë rregullim gradual të dritës, pa e mbyllur plotësisht hapësirën.",
+      imageAlt: "Venecianë ALUROL",
+      suitable: ["Zyra", "Banesa", "Lokale moderne", "Dhoma pune"],
+      benefits: [
+        "Kontroll i saktë i dritës",
+        "Pamje elegante dhe teknike",
+        "Përdorim praktik çdo ditë",
+        "Përshtatje me stile të ndryshme interieri",
+      ],
+      options: [
+        {
+          label: "Ngjyrat",
+          values: ["Ngjyra neutrale", "Ngjyra moderne", "Sipas interierit"],
+        },
+        {
+          label: "Përdorimi",
+          values: ["Zyra", "Shtëpi", "Lokale", "Hapësira pune"],
+        },
+        {
+          label: "Përparësia",
+          values: ["Kontroll drite", "Privatësi", "Mirëmbajtje e lehtë"],
+        },
+      ],
     },
+    {
+      eyebrow: "03 / Premium",
+      title: "Variolight",
+      description:
+        "Variolight është zgjidhje premium për interiere moderne ku kërkohet balancë mes dritës, privatësisë dhe dizajnit. Mund të realizohet në shumë ngjyra dhe me dy lloje materiali.",
+      imageAlt: "Variolight ALUROL",
+      suitable: ["Interiere premium", "Dhoma ndenjeje", "Zyra elegante", "Apartamente moderne"],
+      benefits: [
+        "Pamje moderne dhe elegante",
+        "Balancë mes dritës dhe privatësisë",
+        "Zgjidhje dekorative pa e rënduar hapësirën",
+        "Përshtatje me ambiente moderne",
+      ],
+      options: [
+        {
+          label: "Ngjyrat",
+          values: ["Shumë ngjyra të mundshme", "Tone të qeta", "Ngjyra sipas interierit"],
+        },
+        {
+          label: "Materialet",
+          values: ["Material standard", "Material më i trashë", "Pamje premium"],
+        },
+        {
+          label: "Përdorimi",
+          values: ["Shtëpi", "Apartamente", "Zyra", "Lokale moderne"],
+        },
+      ],
+    },
+    {
+      eyebrow: "04 / Funksionale",
+      title: "Rrjeta kundër insekteve",
+      description:
+        "Rrjetat kundër insekteve ofrojnë mbrojtje praktike pa e penguar ajrosjen. Ato mund të realizohen si zgjidhje diskrete për dritare, dyer ballkoni dhe hapësira ku kërkohet përdorim i lehtë.",
+      imageAlt: "Rrjeta kundër insekteve ALUROL",
+      suitable: ["Kuzhina", "Dhoma gjumi", "Ballkone", "Shtëpi familjare"],
+      benefits: [
+        "Mbrojtje nga insektet",
+        "Ajrosje natyrale",
+        "Zgjidhje diskrete në dritare",
+        "Përdorim praktik gjatë sezonit të ngrohtë",
+      ],
+      options: [
+        {
+          label: "Variantet",
+          values: ["Rrjetë fikse", "Rrjetë me hapje", "Rrjetë me magnet"],
+        },
+        {
+          label: "Përdorimi",
+          values: ["Dritare", "Dyer ballkoni", "Hapësira banimi"],
+        },
+        {
+          label: "Përparësia",
+          values: ["Ajrosje", "Mbrojtje", "Përdorim i lehtë"],
+        },
+      ],
+    },
+  ],
+
+  comparison: {
+    kicker: "Krahasimi",
+    title: "Cili produkt është i duhuri për ju?",
+    text:
+      "Zgjedhja varet nga qëllimi kryesor: privatësi, kontroll drite, pamje premium ose mbrojtje praktike.",
+    items: [
+      {
+        label: "Për privatësi dhe fasadë",
+        value: "Roleta të jashtme",
+      },
+      {
+        label: "Për kontroll të dritës",
+        value: "Venecianë",
+      },
+      {
+        label: "Për interier premium",
+        value: "Variolight",
+      },
+      {
+        label: "Për mbrojtje nga insektet",
+        value: "Rrjeta",
+      },
+    ],
   },
+
+  cta: {
+    kicker: "Ende nuk jeni të sigurt?",
+    title: "Na dërgoni një foto të dritares dhe ju sugjerojmë zgjidhjen.",
+    text:
+      "Për shumë raste, mjafton një foto ose një përshkrim i hapësirës për të kuptuar cili produkt, ngjyrë ose variant është më i përshtatshëm.",
+    button: "Kontakto ALUROL",
+  },
+},
 
   servicesPage: {
     metadata: {
       title: "Shërbimet | ALUROL",
       description:
-        "Matje, këshillim, përgatitje dhe montim profesional për roleta, venecianë, variolight dhe rrjeta kundër insekteve në Maqedoninë e Veriut dhe Evropë.",
+        "Matje, këshillim, përgatitje dhe montim profesional për roleta, venecianë, Variolight dhe rrjeta kundër insekteve në Maqedoninë e Veriut, Gjermani dhe Evropë.",
     },
 
     hero: {
@@ -599,7 +660,7 @@ export const sq = {
     metadata: {
       title: "Kontakt | ALUROL",
       description:
-        "Kontaktoni ALUROL për matje, ofertë dhe montim të roletave, venecianëve, variolight dhe rrjetave kundër insekteve në Maqedoninë e Veriut dhe Evropë.",
+        "Kontaktoni ALUROL për ofertë, matje dhe montim të roletave, venecianëve, Variolight dhe rrjetave kundër insekteve në Maqedoninë e Veriut, Gjermani dhe Evropë.",
     },
 
     hero: {

@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
-
-const siteUrl = "https://alurol.mk";
+import { siteUrl } from "../lib/seo";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,5 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
   };
 }
