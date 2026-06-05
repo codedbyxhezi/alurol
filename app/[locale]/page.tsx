@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { Footer } from "../../components/footer/footer";
-import { FloatingContact } from "../../components/floating-contact/floating-contact";
 import { Gallery } from "../../components/gallery/gallery";
 import { Hero } from "../../components/hero/hero";
 import { Navbar } from "../../components/navbar/navbar";
@@ -40,7 +39,6 @@ export default async function HomePage({ params }: PageProps) {
       </main>
 
       <Footer />
-      <FloatingContact />
       <ScrollToTop />
     </>
   );

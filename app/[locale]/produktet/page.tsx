@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Navbar } from "../../../components/navbar/navbar";
 import { Footer } from "../../../components/footer/footer";
-import { FloatingContact } from "../../../components/floating-contact/floating-contact";
 import { ScrollToTop } from "../../../components/scroll-to-top/scroll-to-top";
 import { getDictionary, isLocale, type Locale } from "../../../lib/i18n";
 import styles from "./produktet.module.css";
@@ -204,7 +203,6 @@ export default async function ProduktetPage({ params }: PageProps) {
       </main>
 
       <Footer />
-      <FloatingContact />
       <ScrollToTop />
     </>
   );

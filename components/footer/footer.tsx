@@ -85,8 +85,15 @@ export function Footer() {
             <h3>{t.footer.contact}</h3>
 
             <div className={styles.contact}>
-              <a href="tel:+38970314249">+389 (0) 70 314 249</a>
+              <div className={styles.phoneGroup}>
+                <span>{locale === "mk" ? "Телефон" : "Telefon"}</span>
+                <a href="tel:+38970314249">+389 (0) 70 314 249</a>
+                <a href="tel:+38971639633">+389 (0) 71 639 633</a>
+                <a href="tel:+38971989777">+389 (0) 71 989 777</a>
+              </div>
+
               <a href="mailto:alurol_gv@live.com">alurol_gv@live.com</a>
+
               <a href="https://www.google.com/maps/search/?api=1&query=Rr.+Beliçica+113%2FA+1230+Gostivar">
                 {locale === "mk"
                   ? "ул. Беличица 113/A, Гостивар"

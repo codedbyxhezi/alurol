@@ -6,10 +6,10 @@
 .hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(340px, 510px);
-  gap: clamp(36px, 6vw, 96px);
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.72fr);
+  gap: clamp(34px, 6vw, 88px);
   align-items: center;
-  padding: clamp(70px, 9vw, 130px) clamp(20px, 5vw, 72px);
+  padding: clamp(54px, 8vw, 108px) clamp(20px, 5vw, 72px);
   overflow: hidden;
   background:
     radial-gradient(circle at 15% 18%, rgba(38, 212, 220, 0.18), transparent 28%),
@@ -30,7 +30,7 @@
 }
 
 .heroText,
-.heroCard {
+.contactPanel {
   position: relative;
   z-index: 1;
 }
@@ -46,17 +46,17 @@
 }
 
 .heroText h1 {
-  max-width: 880px;
+  max-width: 900px;
   margin: 0;
   color: #0e2748;
-  font-size: clamp(44px, 6.5vw, 92px);
-  line-height: 0.9;
-  letter-spacing: -0.08em;
+  font-size: clamp(42px, 6vw, 82px);
+  line-height: 0.98;
+  letter-spacing: -0.065em;
 }
 
 .heroText p {
-  max-width: 690px;
-  margin: 30px 0 0;
+  max-width: 720px;
+  margin: 28px 0 0;
   color: #607083;
   font-size: clamp(17px, 1.45vw, 20px);
   line-height: 1.78;
@@ -66,7 +66,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 36px;
+  margin-top: 34px;
 }
 
 .primaryButton,
@@ -113,17 +113,18 @@
   border-color: rgba(12, 168, 184, 0.42);
 }
 
-.heroCard {
+.contactPanel {
+  overflow: hidden;
   padding: 30px;
-  border-radius: 40px;
+  border-radius: 38px;
   background:
     radial-gradient(circle at 88% 16%, rgba(38, 212, 220, 0.14), transparent 28%),
     #ffffff;
   border: 1px solid rgba(14, 39, 72, 0.08);
-  box-shadow: 0 36px 110px rgba(14, 39, 72, 0.16);
+  box-shadow: 0 34px 100px rgba(14, 39, 72, 0.14);
 }
 
-.heroCard::before {
+.contactPanel::before {
   content: "";
   display: block;
   height: 8px;
@@ -131,7 +132,7 @@
   background: linear-gradient(90deg, #0ca8b8, #0e2748);
 }
 
-.heroCardTop span {
+.panelHeader span {
   display: inline-flex;
   margin-bottom: 8px;
   color: #0ca8b8;
@@ -141,436 +142,188 @@
   text-transform: uppercase;
 }
 
-.heroCardTop strong {
-  display: block;
+.panelHeader h2 {
+  margin: 0;
   color: #0e2748;
   font-size: 34px;
   line-height: 1;
   letter-spacing: -0.055em;
 }
 
-.bigPhone {
+.contactRows {
   display: grid;
-  grid-template-columns: 68px 1fr;
-  gap: 18px;
-  align-items: center;
-  margin-top: 30px;
-  padding: 22px;
-  border-radius: 28px;
-  background: #0e2748;
-  color: #ffffff;
-}
-
-.bigPhone svg {
-  display: block;
-  color: #26d4dc;
-}
-
-.bigPhone span {
-  display: block;
-  margin-bottom: 6px;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 13px;
-  font-weight: 850;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.bigPhone a {
-  color: #ffffff;
-  font-size: clamp(22px, 2vw, 30px);
-  font-weight: 950;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  text-decoration: none;
-}
-
-.quickGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
-  margin-top: 14px;
+  margin-top: 28px;
 }
 
-.quickGrid a {
+.contactRow {
   display: grid;
-  place-items: center;
-  gap: 8px;
-  min-height: 110px;
+  grid-template-columns: 52px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 16px;
   border-radius: 24px;
   background: #f7fbfc;
   border: 1px solid rgba(14, 39, 72, 0.08);
   color: #0e2748;
-  font-size: 14px;
-  font-weight: 900;
   text-decoration: none;
   transition:
     transform 180ms ease,
     background 180ms ease,
-    color 180ms ease;
+    border-color 180ms ease;
 }
 
-.quickGrid a:hover {
+.contactRow:hover {
   transform: translateY(-3px);
-  background: #0ca8b8;
-  color: #ffffff;
+  background: #ffffff;
+  border-color: rgba(12, 168, 184, 0.26);
 }
 
-.contactSection,
+.rowIcon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.7), transparent 34%),
+    linear-gradient(135deg, #0ca8b8, #0e2748);
+  color: #ffffff;
+  box-shadow: 0 14px 30px rgba(12, 168, 184, 0.18);
+}
+
+.contactRow span {
+  display: block;
+  margin-bottom: 6px;
+  color: #0ca8b8;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contactRow strong,
+.phoneList a {
+  display: block;
+  width: fit-content;
+  color: #0e2748;
+  font-size: 16px;
+  font-weight: 950;
+  line-height: 1.35;
+  text-decoration: none;
+  letter-spacing: -0.015em;
+}
+
+.phoneList {
+  display: grid;
+  gap: 4px;
+}
+
+.phoneList a:hover,
+.contactRow:hover strong {
+  color: #0ca8b8;
+}
+
+.contactRow small {
+  display: block;
+  margin-top: 4px;
+  color: #607083;
+  font-size: 14px;
+  font-weight: 800;
+}
+
 .stepsSection {
-  padding: clamp(76px, 9vw, 135px) clamp(20px, 5vw, 72px);
+  padding: clamp(70px, 9vw, 125px) clamp(20px, 5vw, 72px);
   background: #ffffff;
 }
 
 .sectionHeader {
   max-width: 920px;
-  margin-bottom: clamp(36px, 5vw, 70px);
+  margin-bottom: clamp(34px, 5vw, 62px);
 }
 
 .sectionHeader h2 {
   max-width: 860px;
   margin: 0;
   color: #0e2748;
-  font-size: clamp(36px, 5.4vw, 72px);
-  line-height: 0.98;
-  letter-spacing: -0.065em;
+  font-size: clamp(34px, 5vw, 68px);
+  line-height: 1;
+  letter-spacing: -0.06em;
 }
 
 .sectionHeader p {
   max-width: 720px;
-  margin: 24px 0 0;
+  margin: 22px 0 0;
   color: #607083;
   font-size: 18px;
   line-height: 1.75;
 }
 
-.contactGrid {
+.stepsList {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 14px;
+  max-width: 1180px;
 }
 
-.contactCard {
-  position: relative;
-  min-height: 330px;
-  display: flex;
-  flex-direction: column;
-  padding: 28px;
-  border-radius: 34px;
-  background:
-    radial-gradient(circle at 88% 14%, rgba(38, 212, 220, 0.1), transparent 28%),
-    #f7fbfc;
-  border: 1px solid rgba(14, 39, 72, 0.08);
-  box-shadow: 0 24px 70px rgba(14, 39, 72, 0.07);
-  text-decoration: none;
-  overflow: hidden;
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.contactCard:hover {
-  transform: translateY(-8px);
-  border-color: rgba(12, 168, 184, 0.28);
-  box-shadow: 0 34px 95px rgba(14, 39, 72, 0.13);
-}
-
-.cardIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 62px;
-  height: 62px;
-  margin-bottom: 26px;
-  border-radius: 22px;
-  background:
-    radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.7), transparent 34%),
-    linear-gradient(135deg, #0ca8b8, #0e2748);
-  color: #ffffff;
-  box-shadow: 0 18px 38px rgba(12, 168, 184, 0.22);
-}
-
-.cardIcon svg {
-  display: block;
-}
-
-.contactCard > span {
-  color: #0ca8b8;
-  font-size: 12px;
-  font-weight: 950;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.contactCard h3 {
-  margin: 12px 0 0;
-  color: #0e2748;
-  font-size: 26px;
-  line-height: 1.12;
-  letter-spacing: -0.04em;
-  word-break: break-word;
-}
-
-.contactCard p {
-  margin: 14px 0 0;
-  color: #647488;
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.contactCard strong {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 26px;
-  color: #0e2748;
-  font-size: 14px;
-  font-weight: 950;
-}
-
-.contactCard strong span {
-  transition: transform 180ms ease;
-}
-
-.contactCard:hover strong {
-  color: #0ca8b8;
-}
-
-.contactCard:hover strong span {
-  transform: translateX(4px);
-}
-
-.infoSection {
+.stepRow {
   display: grid;
-  grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
-  gap: 18px;
-  padding: clamp(76px, 9vw, 135px) clamp(20px, 5vw, 72px);
-  background:
-    radial-gradient(circle at 14% 20%, rgba(12, 168, 184, 0.12), transparent 30%),
-    linear-gradient(180deg, #f7fbfc 0%, #edf7f9 100%);
-}
-
-.hoursBox,
-.locationBox {
-  border-radius: 36px;
-  border: 1px solid rgba(14, 39, 72, 0.08);
-  box-shadow: 0 24px 70px rgba(14, 39, 72, 0.08);
-}
-
-.hoursBox {
-  display: grid;
-  grid-template-columns: 70px 1fr;
-  gap: 20px;
-  align-items: center;
-  padding: 30px;
-  background: #0e2748;
-  color: #ffffff;
-}
-
-.hoursIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70px;
-  height: 70px;
-  border-radius: 25px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #26d4dc;
-}
-
-.hoursIcon svg {
-  display: block;
-}
-
-.hoursBox span,
-.locationBox span {
-  display: inline-flex;
-  margin-bottom: 10px;
-  color: #26d4dc;
-  font-size: 12px;
-  font-weight: 950;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.hoursBox h2,
-.locationBox h2 {
-  margin: 0;
-  font-size: clamp(28px, 3.4vw, 46px);
-  line-height: 1;
-  letter-spacing: -0.055em;
-}
-
-.hoursBox p {
-  margin: 10px 0 0;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 18px;
-  font-weight: 800;
-}
-
-.locationBox {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 82px 1fr;
   gap: 24px;
-  align-items: center;
-  padding: 30px;
-  background: #ffffff;
-}
-
-.locationBox p {
-  max-width: 640px;
-  margin: 14px 0 0;
-  color: #647488;
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.mapButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  padding: 0 22px;
-  border-radius: 999px;
-  background: #0e2748;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 900;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.stepsGrid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.stepCard {
-  padding: 26px;
-  border-radius: 32px;
+  align-items: start;
+  padding: 24px;
+  border-radius: 28px;
   background: #f7fbfc;
   border: 1px solid rgba(14, 39, 72, 0.08);
-  box-shadow: 0 20px 55px rgba(14, 39, 72, 0.055);
+  box-shadow: 0 18px 45px rgba(14, 39, 72, 0.045);
 }
 
-.stepCard span {
-  display: inline-flex;
-  margin-bottom: 24px;
-  color: rgba(14, 39, 72, 0.22);
-  font-size: 34px;
+.stepRow > strong {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 22px;
+  background: #ffffff;
+  color: #0ca8b8;
+  font-size: 20px;
   font-weight: 950;
-  letter-spacing: -0.07em;
+  box-shadow: 0 14px 34px rgba(14, 39, 72, 0.06);
 }
 
-.stepCard h3 {
+.stepRow h3 {
   margin: 0;
   color: #0e2748;
-  font-size: 23px;
+  font-size: 24px;
   line-height: 1.15;
   letter-spacing: -0.035em;
 }
 
-.stepCard p {
-  margin: 12px 0 0;
+.stepRow p {
+  max-width: 760px;
+  margin: 10px 0 0;
   color: #647488;
   font-size: 15.5px;
   line-height: 1.65;
 }
 
-.ctaSection {
-  padding: clamp(76px, 9vw, 135px) clamp(20px, 5vw, 72px);
-  background:
-    radial-gradient(circle at 12% 20%, rgba(12, 168, 184, 0.15), transparent 30%),
-    linear-gradient(135deg, #0e2748 0%, #102f55 48%, #071829 100%);
-}
-
-.ctaBox {
-  max-width: 1320px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 24px;
-  align-items: center;
-  padding: clamp(28px, 5vw, 48px);
-  border-radius: 38px;
-  background:
-    radial-gradient(circle at 90% 16%, rgba(38, 212, 220, 0.16), transparent 28%),
-    rgba(255, 255, 255, 0.08);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.18);
-}
-
-.ctaBox span {
-  display: inline-flex;
-  margin-bottom: 14px;
-  color: #26d4dc;
-  font-size: 12px;
-  font-weight: 950;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.ctaBox h2 {
-  max-width: 780px;
-  margin: 0;
-  color: #ffffff;
-  font-size: clamp(32px, 5vw, 62px);
-  line-height: 0.98;
-  letter-spacing: -0.065em;
-}
-
-.ctaBox p {
-  max-width: 640px;
-  margin: 18px 0 0;
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 17px;
-  line-height: 1.7;
-}
-
-.ctaButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 54px;
-  padding: 0 25px;
-  border-radius: 999px;
-  background: #ffffff;
-  color: #0e2748;
-  font-size: 15px;
-  font-weight: 900;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
 @media (max-width: 1120px) {
-  .hero,
-  .infoSection,
-  .ctaBox,
-  .locationBox {
+  .hero {
     grid-template-columns: 1fr;
   }
 
-  .heroCard {
-    max-width: 620px;
-  }
-
-  .contactGrid,
-  .stepsGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .mapButton {
-    width: fit-content;
+  .contactPanel {
+    max-width: 640px;
   }
 }
 
 @media (max-width: 720px) {
   .hero {
-    padding-top: 56px;
+    padding: 44px 18px 56px;
+  }
+
+  .heroText h1 {
+    font-size: clamp(36px, 11vw, 54px);
+    line-height: 1;
   }
 
   .heroActions {
@@ -578,37 +331,28 @@
   }
 
   .primaryButton,
-  .secondaryButton,
-  .ctaButton {
+  .secondaryButton {
     width: 100%;
   }
 
-  .contactGrid,
-  .stepsGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .heroCard {
-    border-radius: 32px;
-  }
-
-  .bigPhone {
-    grid-template-columns: 1fr;
-  }
-
-  .quickGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .hoursBox {
-    grid-template-columns: 1fr;
-  }
-
-  .mapButton {
-    width: 100%;
-  }
-
-  .ctaBox {
+  .contactPanel {
+    padding: 24px;
     border-radius: 30px;
+  }
+
+  .contactPanel::before {
+    margin: -24px -24px 24px;
+  }
+
+  .contactRow {
+    grid-template-columns: 1fr;
+  }
+
+  .stepsSection {
+    padding: 56px 18px;
+  }
+
+  .stepRow {
+    grid-template-columns: 1fr;
   }
 }

@@ -8,6 +8,15 @@ import styles from "./contact.module.css";
 
 const contactIcons = [Phone, Mail, MapPin];
 
+function isPhoneLabel(label: string) {
+  const lower = label.toLowerCase();
+  return lower.includes("telefon") || lower.includes("телефон");
+}
+
+function toPhoneHref(phone: string) {
+  return `tel:${phone.replace(/\(0\)\s*/g, "").replace(/[^\d+]/g, "")}`;
+}
+
 export function Contact() {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
@@ -75,7 +84,39 @@ export function Contact() {
 
           <div className={styles.contactList}>
             {t.contactSection.items.map((item, index) => {
-              const Icon = contactIcons[index];
+              const Icon = contactIcons[index] ?? Phone;
+              const isPhone = isPhoneLabel(item.label);
+              const lines = item.value.split("\n");
+
+              if (isPhone) {
+                return (
+                  <motion.div
+                    key={item.label}
+                    className={styles.contactItem}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ x: 6 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.28, delay: index * 0.06 }}
+                  >
+                    <span className={styles.itemIcon} aria-hidden="true">
+                      <Icon size={21} strokeWidth={1.9} />
+                    </span>
+
+                    <span className={styles.itemText}>
+                      <small>{item.label}</small>
+
+                      <strong className={styles.phoneLinks}>
+                        {lines.map((line) => (
+                          <a key={line} href={toPhoneHref(line)}>
+                            {line}
+                          </a>
+                        ))}
+                      </strong>
+                    </span>
+                  </motion.div>
+                );
+              }
 
               return (
                 <motion.a

@@ -59,7 +59,7 @@ export const sq = {
     imageAlt: "Sistem modern roletash ALUROL",
     stats: [
       {
-        value: "10+",
+        value: "20+",
         label: "Vite përvojë",
       },
       {
@@ -232,7 +232,8 @@ export const sq = {
     items: [
       {
         label: "Telefon",
-        value: "+389 (0) 70 314 249",
+        value:
+          "+389 (0) 70 314 249\n+389 (0) 71 639 633\n+389 (0) 71 989 777",
         href: "tel:+38970314249",
       },
       {
@@ -686,7 +687,7 @@ export const sq = {
         {
           label: "Telefon",
           title: "+389 (0) 70 314 249",
-          text: "Për pyetje të shpejta, matje ose termin.",
+          text: "+389 (0) 71 639 633\n+389 (0) 71 989 777",
           href: "tel:+38970314249",
           action: "Thirr tani",
         },
@@ -705,7 +706,7 @@ export const sq = {
             "https://www.google.com/maps/search/?api=1&query=Rr.+Beliçica+113%2FA+1230+Gostivar",
           action: "Hap hartën",
         },
-      ],
+      ],      
     },
 
     info: {
