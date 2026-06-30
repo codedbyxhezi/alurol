@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { getDictionary, getLocaleFromPathname } from "../../lib/i18n";
 import styles from "./hero.module.css";
@@ -13,17 +12,18 @@ export function Hero() {
 
   return (
     <section className={styles.hero}>
-      <div className={styles.noise} />
-      <div className={styles.orbOne} />
-      <div className={styles.orbTwo} />
+      <Image
+        src="/hero-card-alurol.png"
+        alt={t.hero.imageAlt}
+        fill
+        priority
+        sizes="100vw"
+        className={styles.backgroundImage}
+      />
+      <div className={styles.overlay} />
 
       <div className={styles.inner}>
-        <motion.div
-          className={styles.content}
-          initial={{ opacity: 0, y: 34 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, ease: "easeOut" }}
-        >
+        <div className={styles.content}>
           <div className={styles.badge}>
             <span />
             {t.hero.badge}
@@ -36,7 +36,7 @@ export function Hero() {
           <div className={styles.actions}>
             <a href={t.routes.contact} className={styles.primaryButton}>
               {t.hero.primaryCta}
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true">&rarr;</span>
             </a>
 
             <a href={t.routes.products} className={styles.secondaryButton}>
@@ -45,93 +45,24 @@ export function Hero() {
           </div>
 
           <div className={styles.featureList}>
-            {t.hero.features.map((feature) => (
-              <span key={feature}>{feature}</span>
+            {t.hero.features.map((feature, index) => (
+              <span key={feature}>
+                <i>{String(index + 1).padStart(2, "0")}</i>
+                {feature}
+              </span>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className={styles.visual}
-          initial={{ opacity: 0, x: 48, scale: 0.96 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
-          transition={{ duration: 0.85, ease: "easeOut", delay: 0.12 }}
-        >
-          <motion.div
-            className={styles.imageCard}
-            whileHover={{
-              y: -12,
-              rotateX: 3,
-              rotateY: -4,
-              scale: 1.015,
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 180,
-              damping: 18,
-            }}
-          >
-            <div className={styles.cardGlow} />
-
-            <Image
-              src="/hero-card-alurol.png"
-              alt={t.hero.imageAlt}
-              width={1280}
-              height={1024}
-              priority
-              className={styles.heroImage}
-            />
-
-            <motion.div
-              className={styles.floatingProcess}
-              animate={{
-                y: [0, -8, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              <small>Procesi</small>
-              <strong>Matje → Prodhim → Montim</strong>
-            </motion.div>
-
-            <motion.div
-              className={styles.floatingQuality}
-              animate={{
-                y: [0, 8, 0],
-              }}
-              transition={{
-                duration: 4.8,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              <span>✓</span>
-
-              <div>
-                <strong>Montim i pastër</strong>
-                <small>Sipas masës së dritares</small>
-              </div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+        <div className={styles.trustBar}>
+          {t.hero.stats.map((stat) => (
+            <div key={stat.label}>
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
-
-      <motion.div
-        className={styles.trustBar}
-        initial={{ opacity: 0, y: 22 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.65, delay: 0.28 }}
-      >
-        {t.hero.stats.map((stat) => (
-          <div key={stat.label}>
-            <strong>{stat.value}</strong>
-            <span>{stat.label}</span>
-          </div>
-        ))}
-      </motion.div>
     </section>
   );
 }

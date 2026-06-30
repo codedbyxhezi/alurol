@@ -2,116 +2,108 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: clamp(34px, 5vw, 68px) clamp(20px, 5vw, 72px) 46px;
-  background:
-    radial-gradient(circle at 72% 12%, rgba(38, 212, 220, 0.28), transparent 34%),
-    radial-gradient(circle at 8% 24%, rgba(255, 255, 255, 0.92), transparent 34%),
-    linear-gradient(135deg, #edf7f9 0%, #f7fbfc 46%, #d7f2f5 100%);
-  color: #0e2748;
+  display: grid;
+  align-items: end;
+  min-height: clamp(560px, 72svh, 720px);
+  padding: clamp(36px, 4.4vw, 62px) clamp(20px, 5vw, 72px) clamp(22px, 2.6vw, 34px);
+  background: #071829;
+  color: #ffffff;
 }
 
-.noise {
+.backgroundImage {
+  z-index: -3;
+  object-fit: cover;
+  object-position: 64% 50%;
+  transform: scale(1.02);
+}
+
+.overlay {
   position: absolute;
   inset: 0;
   z-index: -2;
-  opacity: 0.34;
-  background-image:
-    linear-gradient(rgba(14, 39, 72, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14, 39, 72, 0.035) 1px, transparent 1px);
-  background-size: 34px 34px;
-  mask-image: linear-gradient(to bottom, black, transparent 88%);
+  background:
+    linear-gradient(90deg, rgba(7, 24, 41, 0.92) 0%, rgba(7, 24, 41, 0.78) 38%, rgba(7, 24, 41, 0.22) 72%),
+    linear-gradient(180deg, rgba(7, 24, 41, 0.18) 0%, rgba(7, 24, 41, 0.54) 100%);
 }
 
-.orbOne,
-.orbTwo {
+.hero::after {
+  content: "";
   position: absolute;
+  inset: 0;
   z-index: -1;
-  border-radius: 999px;
-  filter: blur(12px);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(90deg, black, transparent 68%);
+  opacity: 0.34;
   pointer-events: none;
 }
 
-.orbOne {
-  width: 360px;
-  height: 360px;
-  right: 8%;
-  top: 8%;
-  background: rgba(12, 168, 184, 0.24);
-}
-
-.orbTwo {
-  width: 280px;
-  height: 280px;
-  left: -90px;
-  bottom: 10%;
-  background: rgba(255, 255, 255, 0.78);
-}
-
 .inner {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.98fr);
-  align-items: center;
-  gap: clamp(36px, 6vw, 92px);
+  width: 100%;
   max-width: 1500px;
   margin: 0 auto;
+  display: grid;
+  gap: clamp(20px, 3vw, 34px);
 }
 
 .content {
-  max-width: 720px;
+  width: min(820px, 100%);
 }
 
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   min-height: 38px;
-  padding: 0 16px;
+  padding: 0 15px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(14, 39, 72, 0.08);
-  color: #0e2748;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.94);
   font-size: 14px;
   font-weight: 900;
-  letter-spacing: -0.01em;
-  box-shadow: 0 14px 36px rgba(14, 39, 72, 0.06);
-  backdrop-filter: blur(16px);
+  letter-spacing: 0;
+  backdrop-filter: blur(18px);
 }
 
 .badge span {
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: #0ca8b8;
-  box-shadow: 0 0 0 6px rgba(12, 168, 184, 0.14);
+  background: #25dce8;
+  box-shadow: 0 0 0 6px rgba(37, 220, 232, 0.18);
 }
 
 .title {
-  max-width: 760px;
-  margin: 28px 0 24px;
-  color: #0e2748;
-  font-size: clamp(42px, 5.4vw, 82px);
-  line-height: 0.98;
-  letter-spacing: -0.06em;
-  font-weight: 850;
+  max-width: 850px;
+  margin: 22px 0 18px;
+  color: #ffffff;
+  font-size: clamp(40px, 4.6vw, 68px);
+  line-height: 1.03;
+  letter-spacing: 0;
+  font-weight: 900;
+  text-wrap: balance;
+  text-shadow: 0 22px 58px rgba(0, 0, 0, 0.36);
 }
 
 .description {
-  max-width: 760px;
+  max-width: 720px;
   margin: 0;
-  color: #50647d;
-  font-size: clamp(17px, 1.45vw, 21px);
-  line-height: 1.72;
-  font-weight: 500;
+  color: rgba(235, 247, 249, 0.88);
+  font-size: clamp(16px, 1.22vw, 18px);
+  line-height: 1.66;
+  font-weight: 600;
+  text-shadow: 0 12px 34px rgba(0, 0, 0, 0.32);
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 14px;
-  margin-top: 34px;
+  gap: 12px;
+  margin-top: 24px;
 }
 
 .primaryButton,
@@ -119,8 +111,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 58px;
-  padding: 0 28px;
+  min-height: 52px;
+  padding: 0 24px;
   border-radius: 999px;
   font-size: 15px;
   font-weight: 950;
@@ -135,9 +127,9 @@
 
 .primaryButton {
   gap: 10px;
-  background: #0e2748;
-  color: #ffffff;
-  box-shadow: 0 20px 42px rgba(14, 39, 72, 0.2);
+  background: #25dce8;
+  color: #071829;
+  box-shadow: 0 22px 48px rgba(37, 220, 232, 0.22);
 }
 
 .primaryButton span {
@@ -146,8 +138,8 @@
 
 .primaryButton:hover {
   transform: translateY(-3px);
-  background: #0ca8b8;
-  box-shadow: 0 24px 48px rgba(12, 168, 184, 0.24);
+  background: #ffffff;
+  box-shadow: 0 24px 54px rgba(255, 255, 255, 0.18);
 }
 
 .primaryButton:hover span {
@@ -155,395 +147,228 @@
 }
 
 .secondaryButton {
-  background: rgba(255, 255, 255, 0.62);
-  color: #0e2748;
-  border: 1px solid rgba(14, 39, 72, 0.12);
-  box-shadow: 0 18px 38px rgba(14, 39, 72, 0.06);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(16px);
 }
 
 .secondaryButton:hover {
   transform: translateY(-3px);
-  background: #ffffff;
-  border-color: rgba(12, 168, 184, 0.3);
-  color: #0ca8b8;
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(37, 220, 232, 0.7);
+  color: #25dce8;
 }
 
 .featureList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  width: min(760px, 100%);
+  margin-top: 22px;
 }
 
 .featureList span {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  min-height: 34px;
-  padding: 0 14px;
-  border-radius: 999px;
-  background: rgba(14, 39, 72, 0.065);
-  color: #0e2748;
+  gap: 10px;
+  min-width: 0;
+  min-height: 46px;
+  padding: 0 13px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffffff;
   font-size: 13px;
   font-weight: 900;
+  backdrop-filter: blur(16px);
 }
 
-.visual {
-  position: relative;
-  perspective: 1100px;
-}
-
-.imageCard {
-  position: relative;
-  overflow: hidden;
-  border-radius: 38px;
-  transform-style: preserve-3d;
-  will-change: transform;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(235, 251, 253, 0.78));
-  border: 1px solid rgba(14, 39, 72, 0.08);
-  box-shadow:
-    0 34px 90px rgba(14, 39, 72, 0.16),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.75);
-}
-
-.imageCard::before {
-  content: "";
-  position: absolute;
-  inset: 18px;
-  z-index: 2;
-  border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.58);
-  pointer-events: none;
-}
-
-.cardGlow {
-  position: absolute;
-  inset: -30%;
-  z-index: 0;
-  background:
-    radial-gradient(circle at 76% 18%, rgba(12, 168, 184, 0.24), transparent 34%),
-    radial-gradient(circle at 18% 84%, rgba(14, 39, 72, 0.12), transparent 34%);
-  pointer-events: none;
-  animation: heroGlowMove 7s ease-in-out infinite;
-}
-
-.heroImage {
-  position: relative;
-  z-index: 1;
-  display: block;
-  width: 100%;
-  height: auto;
-  transform: translateZ(26px);
-}
-
-.floatingProcess,
-.floatingQuality {
-  position: absolute;
-  z-index: 4;
-  border-radius: 22px;
-  backdrop-filter: blur(18px);
-  box-shadow: 0 18px 46px rgba(14, 39, 72, 0.16);
-}
-
-.floatingProcess {
-  left: 7%;
-  top: 14%;
-  display: grid;
-  gap: 6px;
-  padding: 18px 20px;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(14, 39, 72, 0.08);
-  transform: translateZ(52px);
-}
-
-.floatingProcess small {
-  color: #0ca8b8;
+.featureList i {
+  flex: 0 0 auto;
+  color: #25dce8;
+  font-style: normal;
   font-size: 11px;
   font-weight: 950;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.floatingProcess strong {
-  max-width: 170px;
-  color: #0e2748;
-  font-size: 14px;
-  line-height: 1.25;
-}
-
-.floatingQuality {
-  right: 7%;
-  bottom: 10%;
-  display: inline-flex;
-  align-items: center;
-  gap: 13px;
-  padding: 14px 18px;
-  background: rgba(14, 39, 72, 0.92);
-  color: #ffffff;
-  transform: translateZ(64px);
-}
-
-.floatingQuality > span {
-  display: inline-grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  flex: 0 0 auto;
-  border-radius: 14px;
-  background: #25dce8;
-  color: #0e2748;
-  font-size: 22px;
-  font-weight: 900;
-}
-
-.floatingQuality div {
-  display: grid;
-  gap: 3px;
-}
-
-.floatingQuality strong {
-  font-size: 14px;
-  line-height: 1.1;
-}
-
-.floatingQuality small {
-  color: rgba(255, 255, 255, 0.76);
-  font-size: 12px;
 }
 
 .trustBar {
-  position: relative;
-  z-index: 3;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  max-width: 1080px;
-  margin: clamp(42px, 6vw, 76px) auto 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(18px);
 }
 
 .trustBar div {
-  position: relative;
-  overflow: hidden;
   display: grid;
-  gap: 10px;
-  min-height: 132px;
-  padding: 24px 26px;
-  border-radius: 28px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(235, 251, 253, 0.72));
-  border: 1px solid rgba(14, 39, 72, 0.08);
-  box-shadow:
-    0 22px 60px rgba(14, 39, 72, 0.09),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(16px);
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease;
+  gap: 7px;
+  min-height: 90px;
+  padding: 18px 24px;
 }
 
-.trustBar div::before {
-  content: "";
-  position: absolute;
-  left: 24px;
-  top: 22px;
-  width: 34px;
-  height: 4px;
-  border-radius: 999px;
-  background: #0ca8b8;
-  box-shadow: 0 0 22px rgba(12, 168, 184, 0.36);
-}
-
-.trustBar div::after {
-  content: "";
-  position: absolute;
-  right: -42px;
-  bottom: -42px;
-  width: 118px;
-  height: 118px;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(12, 168, 184, 0.18), transparent 68%);
-  pointer-events: none;
-}
-
-.trustBar div:hover {
-  transform: translateY(-6px);
-  border-color: rgba(12, 168, 184, 0.2);
-  box-shadow:
-    0 28px 76px rgba(14, 39, 72, 0.13),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.78);
+.trustBar div + div {
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .trustBar strong {
-  position: relative;
-  z-index: 1;
-  margin-top: 22px;
-  color: #0e2748;
-  font-size: clamp(34px, 4.2vw, 54px);
+  color: #ffffff;
+  font-size: clamp(28px, 3.2vw, 42px);
   line-height: 0.95;
-  letter-spacing: -0.065em;
+  letter-spacing: 0;
   font-weight: 950;
 }
 
 .trustBar span {
-  position: relative;
-  z-index: 1;
-  max-width: 190px;
-  color: #607083;
+  max-width: 210px;
+  color: rgba(235, 247, 249, 0.76);
   font-size: 14px;
   line-height: 1.35;
   font-weight: 850;
 }
 
-@keyframes heroGlowMove {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
+@media (max-width: 980px) {
+  .hero {
+    min-height: auto;
+    padding-top: 64px;
   }
 
-  50% {
-    transform: translate3d(4%, -3%, 0) rotate(4deg);
+  .backgroundImage {
+    object-position: 68% 50%;
   }
-}
 
-@media (max-width: 1180px) {
-  .inner {
-    grid-template-columns: 1fr;
+  .overlay {
+    background:
+      linear-gradient(90deg, rgba(7, 24, 41, 0.93) 0%, rgba(7, 24, 41, 0.74) 58%, rgba(7, 24, 41, 0.36) 100%),
+      linear-gradient(180deg, rgba(7, 24, 41, 0.14) 0%, rgba(7, 24, 41, 0.66) 100%);
   }
 
   .content {
-    max-width: 900px;
+    width: min(720px, 100%);
   }
 
-  .visual {
-    max-width: 720px;
-    width: 100%;
-    margin: 0 auto;
+  .featureList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 760px) {
   .hero {
-    padding: 30px 18px 34px;
+    padding: 34px 18px 24px;
+  }
+
+  .backgroundImage {
+    object-position: 70% 50%;
+  }
+
+  .overlay {
+    background:
+      linear-gradient(180deg, rgba(7, 24, 41, 0.52) 0%, rgba(7, 24, 41, 0.92) 52%, rgba(7, 24, 41, 0.96) 100%),
+      linear-gradient(90deg, rgba(7, 24, 41, 0.68), rgba(7, 24, 41, 0.24));
+  }
+
+  .hero::after {
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, transparent, black 38%, black);
   }
 
   .title {
-    margin-top: 24px;
-    font-size: clamp(38px, 11vw, 58px);
-    line-height: 1;
-    letter-spacing: -0.055em;
+    margin-top: 18px;
+    margin-bottom: 14px;
+    max-width: 100%;
+    font-size: clamp(30px, 8vw, 40px);
+    line-height: 1.08;
+    text-wrap: auto;
   }
 
   .description {
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 1.56;
   }
 
   .actions {
     align-items: stretch;
+    gap: 10px;
+    margin-top: 20px;
   }
 
   .primaryButton,
   .secondaryButton {
     width: 100%;
-    min-height: 54px;
+    min-height: 48px;
+    font-size: 14px;
   }
 
   .featureList {
     gap: 8px;
+    margin-top: 16px;
   }
 
   .featureList span {
-    font-size: 12px;
-  }
-
-  .imageCard {
-    border-radius: 28px;
-  }
-
-  .imageCard::before {
-    inset: 12px;
-    border-radius: 22px;
-  }
-
-  .floatingProcess {
-    left: 5%;
-    top: 8%;
-    padding: 13px 15px;
-    border-radius: 18px;
-  }
-
-  .floatingProcess small {
-    font-size: 9px;
-  }
-
-  .floatingProcess strong {
-    max-width: 135px;
-    font-size: 12px;
-  }
-
-  .floatingQuality {
-    right: 5%;
-    bottom: 7%;
-    padding: 11px 13px;
-    border-radius: 18px;
-  }
-
-  .floatingQuality > span {
-    width: 32px;
-    height: 32px;
-    font-size: 18px;
-    border-radius: 12px;
-  }
-
-  .floatingQuality strong {
-    font-size: 12px;
-  }
-
-  .floatingQuality small {
-    font-size: 10px;
+    min-height: 42px;
+    padding: 0 12px;
+    font-size: 11px;
   }
 
   .trustBar {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 36px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .trustBar div {
     min-height: auto;
-    padding: 22px 24px;
-    border-radius: 24px;
+    padding: 14px 12px;
+  }
+
+  .trustBar div + div {
+    border-left: 1px solid rgba(255, 255, 255, 0.16);
+    border-top: 0;
   }
 
   .trustBar strong {
-    margin-top: 18px;
-    font-size: 38px;
+    font-size: clamp(24px, 8vw, 32px);
   }
 
   .trustBar span {
     max-width: none;
-    font-size: 13.5px;
+    font-size: 10.5px;
+    line-height: 1.25;
   }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 520px) {
+  .content,
+  .featureList,
+  .trustBar {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .badge {
+    min-height: 36px;
     font-size: 12px;
-    padding: 0 13px;
+    padding: 0 12px;
   }
 
   .title {
-    font-size: clamp(34px, 10.5vw, 48px);
-    line-height: 1.02;
+    font-size: clamp(28px, 7.4vw, 32px);
+    overflow-wrap: anywhere;
   }
 
-  .floatingProcess {
-    display: none;
+  .description {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 360px) {
+  .featureList,
+  .trustBar {
+    grid-template-columns: 1fr;
   }
 
-  .floatingQuality {
-    right: 50%;
-    bottom: 5%;
-    transform: translateX(50%) translateZ(64px);
+  .trustBar div + div {
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
   }
 }
